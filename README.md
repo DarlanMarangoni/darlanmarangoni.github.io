@@ -1,1 +1,0 @@
-# darlanmarangoni.github.io
