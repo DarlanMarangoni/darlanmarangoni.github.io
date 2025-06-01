@@ -3,9 +3,380 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Darlan Marangoni</title>
+    <title>Darlan Marangoni - Backend Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #34495e;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+            color: white;
+            padding: 100px 0 50px;
+            text-align: center;
+        }
+        
+        .header-content h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .header-content h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+        
+        .header-content .tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .tag {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        section {
+            padding: 60px 0;
+        }
+        
+        section h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            position: relative;
+        }
+        
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .about {
+            background-color: white;
+        }
+        
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+        
+        .skills {
+            background-color: var(--light-color);
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        .skill-category {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            width: 300px;
+            transition: transform 0.3s;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+        
+        .skill-category h3 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .skill-category h3 i {
+            margin-right: 10px;
+        }
+        
+        .skill-category ul {
+            list-style-type: none;
+        }
+        
+        .skill-category li {
+            padding: 5px 0;
+            border-bottom: 1px dashed #eee;
+        }
+        
+        .skill-category li:last-child {
+            border-bottom: none;
+        }
+        
+        .experience {
+            background-color: white;
+        }
+        
+        .experience-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .experience-item {
+            padding: 30px;
+            margin-bottom: 30px;
+            border-left: 3px solid var(--secondary-color);
+            background-color: var(--light-color);
+            border-radius: 0 8px 8px 0;
+            position: relative;
+        }
+        
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+        }
+        
+        .experience-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .experience-item p {
+            margin-bottom: 10px;
+        }
+        
+        .contact {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        .contact h2::after {
+            background-color: white;
+        }
+        
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .contact-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .contact-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .skills-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .skill-category {
+                width: 100%;
+                max-width: 400px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello World1! this is Darlan Marangoni's page</h1>
+    <header>
+        <div class="container header-content">
+            <h1>Darlan Marangoni</h1>
+            <h2>Backend Developer & Cloud Solutions Architect</h2>
+            <div class="tags">
+                <span class="tag">Java</span>
+                <span class="tag">AWS</span>
+                <span class="tag">Azure</span>
+                <span class="tag">Google Cloud</span>
+                <span class="tag">Kafka</span>
+                <span class="tag">Serverless</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <p>Experienced backend developer with a strong track record of building robust, scalable systems for enterprise-level applications. I specialize in Java development with extensive experience in cloud technologies including AWS, Azure, and Google Cloud. My expertise spans across relational and non-relational databases, messaging systems, and serverless architecture implementation.</p>
+                <p>I thrive in complex environments where performance, reliability and scalability are essential. My solutions are designed with best practices in mind, focusing on clean code, maintainability, and efficient resource utilization.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="skills">
+        <div class="container">
+            <h2>Technical Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Programming Languages</h3>
+                    <ul>
+                        <li>Java (Core, Spring Framework, Spring Boot)</li>
+                        <li>JavaScript/TypeScript</li>
+                        <li>Node.js</li>
+                        <li>SQL</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-cloud"></i> Cloud Platforms</h3>
+                    <ul>
+                        <li>AWS (Lambda, S3, DynamoDB, EC2)</li>
+                        <li>Azure (Functions, App Service, CosmosDB)</li>
+                        <li>Google Cloud (Cloud Functions, App Engine)</li>
+                        <li>Serverless Architecture</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-database"></i> Databases</h3>
+                    <ul>
+                        <li>Relational: PostgreSQL, MySQL, Oracle</li>
+                        <li>NoSQL: MongoDB, DynamoDB, CosmosDB</li>
+                        <li>Data Modeling & Optimization</li>
+                        <li>ORM Technologies</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-exchange-alt"></i> Messaging Systems</h3>
+                    <ul>
+                        <li>Apache Kafka</li>
+                        <li>RabbitMQ</li>
+                        <li>Google Cloud Pub/Sub</li>
+                        <li>Event-Driven Architecture</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-tools"></i> DevOps</h3>
+                    <ul>
+                        <li>CI/CD Pipelines</li>
+                        <li>Docker & Kubernetes</li>
+                        <li>Infrastructure as Code</li>
+                        <li>Monitoring & Logging</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-sitemap"></i> Architecture</h3>
+                    <ul>
+                        <li>Microservices</li>
+                        <li>RESTful APIs</li>
+                        <li>Serverless Architecture</li>
+                        <li>Distributed Systems</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="experience">
+        <div class="container">
+            <h2>Enterprise Experience</h2>
+            <div class="experience-container">
+                <div class="experience-item">
+                    <h3>Backend Lead Developer</h3>
+                    <p>Led development of high-throughput microservices processing millions of transactions daily. Implemented scalable solutions using Java Spring Boot, Kafka for message processing, and both SQL and NoSQL databases.</p>
+                    <p>Migrated monolithic applications to cloud-native solutions deployed on AWS and Azure, resulting in 40% cost reduction and improved performance.</p>
+                </div>
+                
+                <div class="experience-item">
+                    <h3>Cloud Solutions Architect</h3>
+                    <p>Designed and implemented serverless architectures across multiple cloud providers. Developed event-driven systems using AWS Lambda, Azure Functions, and Google Cloud Functions with Java and Node.js runtimes.</p>
+                    <p>Created robust data pipelines and ETL processes connecting various data sources and messaging systems.</p>
+                </div>
+                
+                <div class="experience-item">
+                    <h3>Database & Messaging Specialist</h3>
+                    <p>Optimized database performance for high-load enterprise applications across relational and non-relational databases. Implemented data sharding and replication strategies for global distribution.</p>
+                    <p>Designed message-based integration systems using Kafka and RabbitMQ, ensuring reliable delivery and processing of critical business events.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <p>Interested in working together? Feel free to contact me!</p>
+            <div class="contact-links">
+                <a href="#"><i class="fas fa-envelope"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Darlan Marangoni. All Rights Reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
